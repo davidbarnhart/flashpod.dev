@@ -164,43 +164,98 @@ Found iPod on /dev/rdisk1 — 82 tracks.
     <section id="install" class="install">
       <h2 class="section-title">Install</h2>
       <p class="install-intro">
-        Download the archive for your OS from the
-        <a href="https://github.com/davidbarnhart/flashpod/releases">Releases page</a>
-        — each holds a single self-contained executable.
+        flashpod is now on PyPI, so for most people a single <code>pip install</code>
+        is all it takes. Two fallbacks below cover manual binaries and offline
+        vintage Macs.
       </p>
 
-      <!-- Pure-CSS tabs -->
-      <div class="tabs">
-        <input type="radio" name="os" id="tab-linux" checked />
-        <input type="radio" name="os" id="tab-macos" />
-        <input type="radio" name="os" id="tab-win" />
-
-        <div class="tab-labels">
-          <label for="tab-linux">Linux</label>
-          <label for="tab-macos">macOS (10.8)</label>
-          <label for="tab-win">Windows</label>
+      <!-- Primary: pip -->
+      <div class="install-method install-primary">
+        <div class="method-head">
+          <span class="method-badge">Easiest</span>
+          <h3>1 · Install with pip</h3>
         </div>
+        <p>
+          If you have Python and a working internet connection, this is the simplest
+          path — it pulls the latest release straight from
+          <a href="https://pypi.org/project/flashpod/">PyPI</a>:
+        </p>
+<pre class="code">pip install flashpod
+flashpod --help</pre>
+        <p class="method-aside">
+          Upgrade later with <code>pip install --upgrade flashpod</code>.
+        </p>
+      </div>
 
-        <div class="tab-panels">
-          <div class="tab-panel" data-os="linux">
+      <!-- Secondary: manual download -->
+      <div class="install-method">
+        <div class="method-head">
+          <span class="method-badge method-badge-alt">Alternative</span>
+          <h3>2 · Download the executable</h3>
+        </div>
+        <p>
+          Prefer a self-contained binary, or don&rsquo;t have Python handy? Grab the
+          archive for your OS from the
+          <a href="https://github.com/davidbarnhart/flashpod/releases">Releases page</a>
+          — each holds a single executable.
+        </p>
+
+        <!-- Pure-CSS tabs -->
+        <div class="tabs">
+          <input type="radio" name="os" id="tab-linux" checked />
+          <input type="radio" name="os" id="tab-macos" />
+          <input type="radio" name="os" id="tab-win" />
+
+          <div class="tab-labels">
+            <label for="tab-linux">Linux</label>
+            <label for="tab-macos">macOS (10.8)</label>
+            <label for="tab-win">Windows</label>
+          </div>
+
+          <div class="tab-panels">
+            <div class="tab-panel" data-os="linux">
 <pre class="code">tar xzf flashpod-linux-x86_64.tar.gz
 cd flashpod-linux-x86_64
 ./install.sh            # to ~/.local/bin (no root); or: sudo ./install.sh
 flashpod --help</pre>
-          </div>
-          <div class="tab-panel" data-os="macos">
+            </div>
+            <div class="tab-panel" data-os="macos">
 <pre class="code">tar xzf flashpod-macos-10.8.tar.gz &amp;&amp; cd flashpod-macos-10.8
 chmod +x flashpod
 xattr -d com.apple.quarantine flashpod   # or right-click → Open once
 ./flashpod --help</pre>
-          </div>
-          <div class="tab-panel" data-os="win">
+            </div>
+            <div class="tab-panel" data-os="win">
 <pre class="code"># Unzip flashpod-windows-x86_64.zip, then from a terminal:
 flashpod.exe --help
 
 # Run an Administrator terminal for the `flash` command.</pre>
+            </div>
           </div>
         </div>
+      </div>
+
+      <!-- Tertiary: offline vintage Macs -->
+      <div class="install-method">
+        <div class="method-head">
+          <span class="method-badge method-badge-alt">Offline / vintage Macs</span>
+          <h3>3 · Copy it across on a USB stick</h3>
+        </div>
+        <p>
+          Many vintage Macs can&rsquo;t reach PyPI or GitHub at all — their TLS
+          certificates are too old to complete a modern HTTPS handshake. For those
+          machines, sideloading the binary is often the only method that works:
+        </p>
+        <ol class="install-steps">
+          <li>
+            On an internet-connected computer, download the macOS executable from the
+            <a href="https://github.com/davidbarnhart/flashpod/releases">Releases page</a>.
+          </li>
+          <li>Copy it onto a USB stick.</li>
+          <li>Plug the stick into the vintage Mac, copy the binary across, then run:</li>
+        </ol>
+<pre class="code">chmod +x flashpod
+./flashpod --help</pre>
       </div>
 
       <p class="install-note">
