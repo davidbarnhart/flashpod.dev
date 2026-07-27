@@ -14,8 +14,8 @@ Pure HTML + CSS. **No build step, no dependencies.** Served via GitHub Pages at
 ├── .nojekyll       # tell Pages to serve files as-is (skip Jekyll)
 └── assets/
     ├── favicon.svg
-    ├── README.md   # which screenshots to drop in
-    └── screenshot-*.png   # (add your own)
+    ├── README.md   # asset inventory
+    └── flashpod_*.png     # screenshots
 ```
 
 ## Preview locally
@@ -54,6 +54,6 @@ few minutes to an hour).
 
 ## Screenshots
 
-The three tiles reference `assets/screenshot-flash.png`, `assets/screenshot-add.png`,
-and `assets/screenshot-ipod.png`. Drop real images in with those names and the
-page picks them up automatically. See `assets/README.md` for sizes.
+The three tiles reference `assets/flashpod_flash.png`, `assets/flashpod_add.png`,
+and `assets/flashpod_list.png` — terminal captures of the `flash`, `add`, and
+`list` commands. See `assets/README.md` for the full asset inventory.

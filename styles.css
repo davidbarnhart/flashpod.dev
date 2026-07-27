@@ -191,7 +191,6 @@ section {
 .terminal-body .g { color: var(--green); }
 
 /* ---------- Screenshots ---------- */
-.shots-note { color: var(--muted); font-size: 0.9rem; margin-top: -0.8rem; }
 .shot-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -263,16 +262,18 @@ section {
   border-radius: 0 var(--radius) var(--radius) var(--radius);
   background: #0b0c10;
 }
-#tab-linux:checked ~ .tab-labels label[for="tab-linux"],
-#tab-macos:checked ~ .tab-labels label[for="tab-macos"],
-#tab-win:checked   ~ .tab-labels label[for="tab-win"] {
+#tab-linux:checked       ~ .tab-labels label[for="tab-linux"],
+#tab-mac-modern:checked  ~ .tab-labels label[for="tab-mac-modern"],
+#tab-mac-vintage:checked ~ .tab-labels label[for="tab-mac-vintage"],
+#tab-win:checked         ~ .tab-labels label[for="tab-win"] {
   background: #0b0c10;
   color: var(--text);
   border-color: var(--border);
 }
-#tab-linux:checked ~ .tab-panels .tab-panel[data-os="linux"],
-#tab-macos:checked ~ .tab-panels .tab-panel[data-os="macos"],
-#tab-win:checked   ~ .tab-panels .tab-panel[data-os="win"] { display: block; }
+#tab-linux:checked       ~ .tab-panels .tab-panel[data-os="linux"],
+#tab-mac-modern:checked  ~ .tab-panels .tab-panel[data-os="mac-modern"],
+#tab-mac-vintage:checked ~ .tab-panels .tab-panel[data-os="mac-vintage"],
+#tab-win:checked         ~ .tab-panels .tab-panel[data-os="win"] { display: block; }
 
 .code {
   margin: 0;

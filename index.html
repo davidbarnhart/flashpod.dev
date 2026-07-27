@@ -146,22 +146,18 @@ Found iPod on /dev/rdisk1 — 82 tracks.
     <!-- SCREENSHOTS -->
     <section id="screenshots" class="shots">
       <h2 class="section-title">Screenshots</h2>
-      <p class="shots-note">
-        Drop your own images into <code>site/assets/</code> and update the
-        <code>src</code> paths below.
-      </p>
       <div class="shot-grid">
         <figure class="shot">
-          <img src="assets/screenshot-flash.png" alt="flashpod flashing a card" loading="lazy" />
-          <figcaption>Flashing a CF card</figcaption>
+          <img src="assets/flashpod_flash.png" alt="flashpod flash prompting for iPod model and firmware version in a terminal" loading="lazy" />
+          <figcaption>Flashing: pick your iPod and firmware</figcaption>
         </figure>
         <figure class="shot">
-          <img src="assets/screenshot-add.png" alt="flashpod adding music" loading="lazy" />
+          <img src="assets/flashpod_add.png" alt="flashpod add copying an album to the iPod with per-track progress" loading="lazy" />
           <figcaption>Loading an album</figcaption>
         </figure>
         <figure class="shot">
-          <img src="assets/screenshot-ipod.png" alt="A flash-modded iPod" loading="lazy" />
-          <figcaption>The finished iPod</figcaption>
+          <img src="assets/flashpod_list.png" alt="flashpod list showing the iPod's library grouped by artist and album" loading="lazy" />
+          <figcaption>Browsing what's on the iPod</figcaption>
         </figure>
       </div>
     </section>
@@ -186,7 +182,7 @@ Found iPod on /dev/rdisk1 — 82 tracks.
           path — it pulls the latest release straight from
           <a href="https://pypi.org/project/flashpod/">PyPI</a>:
         </p>
-<pre class="code">pip install flashpod
+<pre class="code">pip install flashpod       # or: pipx install flashpod
 flashpod --help</pre>
         <p class="method-aside">
           Upgrade later with <code>pip install --upgrade flashpod</code>.
@@ -209,12 +205,14 @@ flashpod --help</pre>
         <!-- Pure-CSS tabs -->
         <div class="tabs">
           <input type="radio" name="os" id="tab-linux" checked />
-          <input type="radio" name="os" id="tab-macos" />
+          <input type="radio" name="os" id="tab-mac-modern" />
+          <input type="radio" name="os" id="tab-mac-vintage" />
           <input type="radio" name="os" id="tab-win" />
 
           <div class="tab-labels">
             <label for="tab-linux">Linux</label>
-            <label for="tab-macos">macOS (10.8)</label>
+            <label for="tab-mac-modern">macOS (modern)</label>
+            <label for="tab-mac-vintage">macOS (vintage)</label>
             <label for="tab-win">Windows</label>
           </div>
 
@@ -225,10 +223,16 @@ cd flashpod-linux-x86_64
 ./install.sh            # to ~/.local/bin (no root); or: sudo ./install.sh
 flashpod --help</pre>
             </div>
-            <div class="tab-panel" data-os="macos">
-<pre class="code">tar xzf flashpod-macos-10.8.tar.gz &amp;&amp; cd flashpod-macos-10.8
-chmod +x flashpod
+            <div class="tab-panel" data-os="mac-modern">
+<pre class="code"># Intel &amp; Apple Silicon — one universal binary (needs macOS 10.13+)
+tar xzf flashpod-macos-universal2.tar.gz &amp;&amp; cd flashpod-macos-universal2
 xattr -d com.apple.quarantine flashpod   # or right-click → Open once
+./flashpod --help</pre>
+            </div>
+            <div class="tab-panel" data-os="mac-vintage">
+<pre class="code"># For FireWire-era Macs (OS X 10.8) — firmware baked in, no network needed
+tar xzf flashpod-macos-vintage-no-internet.tar.gz
+cd flashpod-macos-vintage-no-internet
 ./flashpod --help</pre>
             </div>
             <div class="tab-panel" data-os="win">
@@ -249,23 +253,31 @@ flashpod.exe --help
         </div>
         <p>
           Many vintage Macs can&rsquo;t reach PyPI or GitHub at all — their TLS
-          certificates are too old to complete a modern HTTPS handshake. For those
-          machines, sideloading the binary is often the only method that works:
+          certificates are too old to complete a modern HTTPS handshake. The
+          <code>flashpod-macos-vintage-no-internet</code> build is made for exactly
+          this: the firmware images are baked in, so the vintage Mac never needs a
+          network connection at all.
         </p>
         <ol class="install-steps">
           <li>
-            On an internet-connected computer, download the macOS executable from the
+            On an internet-connected computer, download
+            <code>flashpod-macos-vintage-no-internet.tar.gz</code> from the
             <a href="https://github.com/davidbarnhart/flashpod/releases">Releases page</a>.
           </li>
-          <li>Copy it onto a USB stick.</li>
-          <li>Plug the stick into the vintage Mac, copy the binary across, then run:</li>
+          <li>Copy the archive onto a USB stick.</li>
+          <li>Plug the stick into the vintage Mac, copy the archive across, then run:</li>
         </ol>
-<pre class="code">chmod +x flashpod
+<pre class="code">tar xzf flashpod-macos-vintage-no-internet.tar.gz
+cd flashpod-macos-vintage-no-internet
 ./flashpod --help</pre>
       </div>
 
       <p class="install-note">
-        Building the binaries yourself is documented in
+        The Linux, Windows, and modern-macOS builds don&rsquo;t bundle firmware —
+        <code>flashpod flash</code> downloads the image you pick (verified by
+        checksum), or you supply your own with <code>--firmware</code>. The vintage
+        Mac build is the exception: firmware comes baked in. Building the binaries
+        yourself is documented in
         <a href="https://github.com/davidbarnhart/flashpod/blob/main/BUILD.md">BUILD.md</a>.
       </p>
     </section>
@@ -284,8 +296,10 @@ flashpod.exe --help
         <div class="req">
           <h3>Operating system</h3>
           <p>
-            Linux and macOS are tested. Windows has a backend but isn&rsquo;t tested
-            yet.
+            Linux, macOS (Intel, Apple Silicon, and vintage OS X 10.8), and
+            Windows — card flashing is hardware-tested on all three. Managing
+            music on the iPod itself is Linux and macOS; on Windows, load the
+            card in the reader.
           </p>
         </div>
         <div class="req">
