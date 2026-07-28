@@ -207,6 +207,30 @@ section {
   background: var(--bg-soft);
 }
 .shot figcaption { color: var(--muted); font-size: 0.85rem; margin-top: 0.5rem; text-align: center; }
+.shot a { display: block; cursor: zoom-in; }
+
+/* Click-to-enlarge lightbox (pure CSS, via :target) */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background: rgba(0, 0, 0, 0.85);
+  cursor: zoom-out;
+}
+.lightbox:target { display: flex; }
+.lightbox img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+}
 
 /* ---------- Install (pure-CSS tabs) ---------- */
 .install-intro, .install-note { color: var(--muted); max-width: 60ch; }
