@@ -646,18 +646,16 @@ Found iPod on /dev/rdisk2 &mdash; 31 tracks.</pre>
             <p>
               PIO being slow doesn&rsquo;t explain why syncing <em>broke</em> rather
               than merely crawled. That part is the host&rsquo;s fault, and it went
-              unnoticed because every tool made the same architectural choice.
+              unnoticed because every tool made the same architectural choice
+              &mdash; the one described in
+              <a href="#faq-firewire">the answer above</a>: they all worked through
+              an OS-mounted FAT32 volume, at the file level, leaving the actual
+              conversation with the device to the operating system.
             </p>
             <p>
-              The moment the cable goes in, the iPod reboots into its disk-access
-              mode and presents itself as a storage device. The host OS mounts the
-              FAT32 data partition, and from then on every music manager &mdash;
-              iTunes, Winamp, foobar2000, EphPod, Rhythmbox, gtkpod, Amarok, YamiPod
-              &mdash; works at the file level: open, write, close. Those calls go to
-              the operating system&rsquo;s FAT32 driver, which translates them into
-              block requests aimed at the FireWire device. So the thing actually
-              pacing the conversation with a 2001 iPod is a filesystem driver written
-              for modern hardware, and nobody ever asked it to be gentle. It reads
+              So the thing pacing that conversation with a 2001 iPod is a filesystem
+              driver written for modern hardware, and nobody ever asked it to be
+              gentle. It reads
               ahead speculatively, coalesces writes into large batches, and keeps
               several requests in flight. An iPod in PIO mode cannot keep up, and the
               failure isn&rsquo;t graceful: transfers come back as zeros, the device
