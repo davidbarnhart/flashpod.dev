@@ -259,8 +259,8 @@ Found iPod on /dev/rdisk1 — 82 tracks.
           </div>
         </details>
 
-        <details class="faq-item">
-          <summary>I have a 3rd or 4th generation iPod. What do I need?</summary>
+        <details class="faq-item" id="faq-3g">
+          <summary>I have a 3rd generation iPod. What do I need?</summary>
           <div class="faq-answer">
             <p>
               3rd generation iPods use USB for the data transfer, but charging only
@@ -294,9 +294,31 @@ Found iPod on /dev/rdisk1 — 82 tracks.
             </p>
             <p class="faq-fine">
               Music sync over USB was hardware-tested on a 3rd generation iPod on
-              macOS Monterey and a Linux desktop. The 4th generation uses the same
-              approach and should behave the same way, but I haven&rsquo;t
-              confirmed it on hardware yet.
+              macOS Monterey and a Linux desktop.
+            </p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>I have a 4th generation iPod (or an iPod photo). What do I need?</summary>
+          <div class="faq-answer">
+            <p>
+              The same kit and the same steps as
+              <a href="#faq-3g">the 3rd generation</a>: a USB card reader to image
+              the flash card, then a 30-pin to USB cable to sync. The dock connector
+              and the USB data path are the same, so the card mounts as an ordinary
+              disk and flashpod manages it directly at full speed.
+            </p>
+            <p>
+              flashpod carries firmware for both the grayscale 4th generation and
+              the colour iPod photo, and asks which one you have before it writes
+              anything &mdash; the two are not interchangeable.
+            </p>
+            <p class="faq-fine">
+              Not yet confirmed on hardware. Nothing about these models suggests
+              they behave differently from a 3rd generation, and flashpod will
+              flash and manage them, but nobody has run the whole path on one and
+              reported back. If you try it, I&rsquo;d like to hear how it went.
             </p>
           </div>
         </details>
