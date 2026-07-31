@@ -263,25 +263,34 @@ Found iPod on /dev/rdisk1 — 82 tracks.
           <summary>I have a 3rd or 4th generation iPod. What do I need?</summary>
           <div class="faq-answer">
             <p>
-              A USB card reader to flash the card, and a USB cable. That&rsquo;s
-              it &mdash; none of the FireWire trouble on this page applies to you.
+              3rd generation iPods use USB for the data transfer, but charging only
+              happens over FireWire. You need a USB card reader to first image the
+              flash card for the iPod, and you need a 30-pin to USB cable to perform
+              the sync.
             </p>
             <p>
-              Flash the card in the reader, put it in the iPod, and connect it over
-              USB. It mounts like any ordinary disk and flashpod manages it
-              directly, at megabytes per second rather than the kilobytes per
-              second the FireWire models are stuck with. You can leave the card in
-              the iPod and just plug the cable in when you want to change the
-              music, which is the way it was always meant to work.
+              Apple (and other manufacturers) also made special 30-pin cables that
+              had both a FireWire and a USB end. If you have one of these, plug the
+              USB end into your computer and the FireWire end into a FireWire AC
+              power adapter: that charges your iPod back up and lets you add and
+              remove music once the flash card is in the iPod. If you
+              <strong>only</strong> have a 30-pin to USB cable, you&rsquo;ll need a
+              separate 30-pin to FireWire cable to charge it.
             </p>
             <p>
-              Two things to know. A 3rd generation iPod does <strong>data</strong>
-              over USB but takes <strong>power</strong> only over FireWire, so a
-              flat battery won&rsquo;t come back to life on a USB cable alone.
-              And because the volume really is mounted, eject it before you unplug
-              &mdash; flashpod offers to do that for you at the end of an
-              <code>add</code> or <code>rm</code>, and waits until it has actually
-              happened.
+              Beyond that it&rsquo;s straightforward. Flash the card in the reader,
+              put it in the iPod, and connect it over USB. It mounts like any
+              ordinary disk and flashpod manages it directly, at megabytes per
+              second rather than the kilobytes per second the FireWire models are
+              stuck with. You can leave the card in the iPod and plug the cable in
+              whenever you want to change the music, which is the way it was always
+              meant to work.
+            </p>
+            <p>
+              One thing to watch: because the volume really is mounted, eject it
+              before you unplug &mdash; flashpod offers to do that for you at the
+              end of an <code>add</code> or <code>rm</code>, and waits until it has
+              actually happened.
             </p>
             <p class="faq-fine">
               Hardware-tested on a 3rd generation iPod over USB on macOS. The 4th
