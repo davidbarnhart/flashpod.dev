@@ -312,7 +312,7 @@ Found iPod on /dev/rdisk2 &mdash; 31 tracks.</pre>
           </div>
         </details>
 
-        <details class="faq-item">
+        <details class="faq-item" id="faq-windows">
           <summary>Can I use flashpod on Windows?</summary>
           <div class="faq-answer">
             <p>
@@ -384,35 +384,86 @@ Found iPod on /dev/rdisk2 &mdash; 31 tracks.</pre>
         </details>
 
         <details class="faq-item">
-          <summary>I want to sync over FireWire with a 1st or 2nd gen iPod. What hardware do I need?</summary>
+          <summary>I have a 1st or 2nd generation iPod. What do I need?</summary>
           <div class="faq-answer">
             <p>
-              Ideally, a computer with a FireWire port &mdash; quite possibly an
-              older MacBook Pro you have sitting in a drawer, since the regular
-              MacBooks mostly didn&rsquo;t ship with FireWire. That&rsquo;s exactly
-              why flashpod was written to stay as backward compatible with old Macs
-              as possible: if the only FireWire machine you own is a vintage
-              MacBook Pro, you can still add, list, and remove songs on the iPod
-              from it.
+              A USB card reader, and that&rsquo;s the only hard requirement. You
+              flash the card in the reader on any modern computer, load the bulk of
+              your music onto it there at full speed, and put it in the iPod. If
+              you&rsquo;re happy to pop the card out when you want to change the
+              music, you are done &mdash; nothing else is needed, and this is the
+              fastest way to move a large library anyway.
             </p>
-            <p>If your machine isn&rsquo;t certifiably vintage yet, there are two other routes:</p>
+            <p>
+              What costs you something is managing music <em>while the card is in
+              the iPod</em>. These models have only a FireWire port, so that means
+              finding FireWire:
+            </p>
             <ul class="faq-points">
               <li>
-                <strong>Thunderbolt Mac</strong> &mdash; chain a few adapters to
-                get from Thunderbolt down to a FireWire 400 jack for the top of the
-                iPod. Fair warning: the Thunderbolt-to-FireWire adapter has gotten
-                expensive on the used market.
+                <strong>An older Mac</strong> &mdash; quite possibly a MacBook Pro
+                in a drawer, since the regular MacBooks mostly didn&rsquo;t ship
+                with FireWire. flashpod is deliberately built to keep running on
+                machines that old, back to OS X 10.8.
               </li>
               <li>
-                <strong>Desktop</strong> &mdash; add a cheap PCIe FireWire card.
-                These have stayed plentiful and cheap.
+                <strong>A Thunderbolt Mac</strong> &mdash; chain adapters down to a
+                FireWire 400 jack for the top of the iPod. Fair warning: the
+                Thunderbolt-to-FireWire adapter has gotten expensive used.
+              </li>
+              <li>
+                <strong>A desktop</strong> &mdash; add a PCIe FireWire card. These
+                have stayed plentiful and cheap.
               </li>
             </ul>
             <p>
-              flashpod was developed on a Linux desktop with a PCIe FireWire card,
-              and tested on a 2015-era MacBook Pro over Thunderbolt plus adapters.
-              FireWire syncing on Windows hasn&rsquo;t been live-tested yet &mdash;
-              I don&rsquo;t currently have the equipment.
+              Expect about 270 KiB/s over the cable. That&rsquo;s a hardware
+              ceiling nobody can code around &mdash;
+              <a href="#faq-firewire">the next answer</a> explains why &mdash; so
+              the cable is for adding the odd track, and the reader is for
+              everything else.
+            </p>
+            <p>
+              Managing the iPod over FireWire works on Linux and macOS. It
+              can&rsquo;t work on Windows, which
+              <a href="#faq-windows">dropped FireWire support</a> after 8.1 &mdash;
+              on Windows, use the card reader.
+            </p>
+            <p class="faq-fine">
+              Developed on a Linux desktop with a PCIe FireWire card, and tested on
+              a 2015-era MacBook Pro over Thunderbolt plus adapters.
+            </p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>I have a 3rd or 4th generation iPod. What do I need?</summary>
+          <div class="faq-answer">
+            <p>
+              A USB card reader to flash the card, and a USB cable. That&rsquo;s
+              it &mdash; none of the FireWire trouble on this page applies to you.
+            </p>
+            <p>
+              Flash the card in the reader, put it in the iPod, and connect it over
+              USB. It mounts like any ordinary disk and flashpod manages it
+              directly, at megabytes per second rather than the kilobytes per
+              second the FireWire models are stuck with. You can leave the card in
+              the iPod and just plug the cable in when you want to change the
+              music, which is the way it was always meant to work.
+            </p>
+            <p>
+              Two things to know. A 3rd generation iPod does <strong>data</strong>
+              over USB but takes <strong>power</strong> only over FireWire, so a
+              flat battery won&rsquo;t come back to life on a USB cable alone.
+              And because the volume really is mounted, eject it before you unplug
+              &mdash; flashpod offers to do that for you at the end of an
+              <code>add</code> or <code>rm</code>, and waits until it has actually
+              happened.
+            </p>
+            <p class="faq-fine">
+              Hardware-tested on a 3rd generation iPod over USB on macOS. The 4th
+              generation uses the same approach and should behave the same way, but
+              I haven&rsquo;t confirmed it on hardware yet.
             </p>
           </div>
         </details>
