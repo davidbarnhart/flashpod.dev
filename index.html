@@ -252,22 +252,11 @@ Found iPod on /dev/rdisk1 — 82 tracks.
               on Windows, use the card reader.
             </p>
             <p>
-              <strong>Special note for Mac users.</strong> Plugging in a
-              flash-modded FireWire iPod will prompt macOS to attempt to mount the
-              data partition, and it will be unable to. You&rsquo;ll get
-              &ldquo;The disk you inserted was not readable by this computer&rdquo;
-              with three buttons: <em>Initialize&hellip;</em>, <em>Ignore</em>, and
-              <em>Eject</em>. Pick <strong>Ignore</strong>. Whatever you do,
-              don&rsquo;t pick <em>Initialize&hellip;</em> &mdash; that opens Disk
-              Utility to reformat the card you just carefully prepared.
-            </p>
-            <p>
-              That error is the operating system&rsquo;s native FAT driver being
-              unable to communicate successfully with the iPod&rsquo;s flash
-              storage. flashpod is designed to bypass that driver and talk to the
-              iPod carefully over the raw device the Mac exposes, instead of a
-              mounted partition &mdash; so the dialog is expected, and everything
-              works normally once you dismiss it.
+              On a Mac, plugging the iPod in throws a
+              &ldquo;disk not readable&rdquo; dialog. That&rsquo;s expected, but
+              one of its buttons will reformat your card &mdash; see
+              <a href="#faq-unreadable">why your Mac says that</a> before you click
+              anything.
             </p>
             <p class="faq-fine">
               Developed on a Linux desktop with a PCIe FireWire card, tested on a
@@ -347,6 +336,40 @@ Found iPod on /dev/rdisk1 — 82 tracks.
           </div>
         </details>
 
+
+        <details class="faq-item" id="faq-unreadable">
+          <summary>Why does my Mac say &ldquo;the disk you inserted was not readable&rdquo;?</summary>
+          <div class="faq-answer">
+            <p>
+              Because it isn&rsquo;t &mdash; not by macOS, anyway. Nothing is wrong
+              with your card, and this is expected on a flash-modded FireWire iPod.
+              Only the 1st and 2nd generation are affected; a 3rd or 4th generation
+              over USB mounts perfectly normally.
+            </p>
+            <p>
+              Plugging in the iPod prompts macOS to try to mount the data
+              partition, and it can&rsquo;t. You get &ldquo;The disk you inserted
+              was not readable by this computer&rdquo; and three buttons:
+              <em>Initialize&hellip;</em>, <em>Ignore</em>, and <em>Eject</em>.
+            </p>
+            <p>
+              Pick <strong>Ignore</strong>. Whatever you do, don&rsquo;t pick
+              <em>Initialize&hellip;</em> &mdash; that opens Disk Utility to
+              reformat the card you just carefully prepared. flashpod carries on
+              working perfectly once the dialog is dismissed.
+            </p>
+            <p>
+              The cause is the operating system&rsquo;s own FAT driver being unable
+              to communicate successfully with the iPod&rsquo;s flash storage.
+              flashpod is designed to bypass that driver entirely and talk to the
+              iPod carefully over the raw device the Mac exposes, rather than
+              through a mounted partition &mdash; which is exactly why flashpod can
+              read and write a card that the Finder cannot even open. The
+              <a href="#faq-nitty">technical answer</a> covers what the OS driver is
+              doing wrong.
+            </p>
+          </div>
+        </details>
 
         <details class="faq-item">
           <summary>Do I need iTunes?</summary>
