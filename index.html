@@ -452,10 +452,16 @@ Found iPod on /dev/rdisk1 — 82 tracks.
           <div class="faq-answer">
             <p>
               Because talking to a raw device requires root, and flashpod&rsquo;s
-              whole approach depends on raw access. Even finding your iPod means
-              reading the attached disks to see which one has an iTunes database on
-              it, and that&rsquo;s a privileged operation before any music is
-              involved.
+              whole approach depends on raw access. It isn&rsquo;t only the writing,
+              either: finding an <em>unmounted</em> iPod means reading the attached
+              disks to see which one carries an iTunes database, and that&rsquo;s a
+              privileged operation before any music is involved.
+            </p>
+            <p>
+              If your iPod is already mounted &mdash; which is the normal case on a
+              3rd or 4th generation over USB &mdash; flashpod works through the
+              mount and never asks for anything. The password prompt belongs to the
+              raw path.
             </p>
             <p>
               You never type <code>sudo</code> yourself, though. flashpod re-runs
@@ -725,7 +731,8 @@ Found iPod on /dev/rdisk2 &mdash; 31 tracks.</pre>
               With the queue pinned, the kernel physically cannot build a request
               bigger than 4 KiB, no matter which program asks. macOS exposes no
               per-disk equivalent &mdash; there is no knob to pin &mdash; so flashpod
-              has to be its own throttle there, and holds to a single sector.
+              has to be its own throttle there, and holds to a single sector over the
+              bridge.
             </p>
             <p>
               Writing your own filesystem driver is a good way to lose data, so this
