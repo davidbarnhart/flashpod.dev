@@ -656,10 +656,12 @@ Found iPod on /dev/rdisk2 &mdash; 31 tracks.</pre>
               corrupted on the way down.
             </p>
             <p>
-              The measured limits on real hardware are stark. Single-sector transfers
-              &mdash; 512 bytes &mdash; work in both directions. At 4 KiB, reads
-              return zeros and writes corrupt. The default Linux queue settings ask
-              for 128 KiB with 128 KiB of read-ahead.
+              The measured limits on real hardware are stark. Single-sector
+              transfers &mdash; 512 bytes &mdash; work in both directions. Through
+              macOS&rsquo;s raw device, where nothing stands between the request and
+              the bridge, 4 KiB already fails: reads come back as zeros and writes
+              corrupt. For comparison, the default Linux settings ask that device
+              for 128 KiB at a time, with another 128 KiB of read-ahead on top.
             </p>
 
             <h4>3 &middot; What &ldquo;unbuffered&rdquo; means, and why it matters</h4>
@@ -697,14 +699,32 @@ Found iPod on /dev/rdisk2 &mdash; 31 tracks.</pre>
               Bypassing the OS&rsquo;s FAT32 driver means implementing FAT32
               yourself, so that&rsquo;s what flashpod does: directories, long
               filenames, cluster allocation, deletes and overwrites, in its own
-              driver, every access unbuffered and capped &mdash; one sector at a time
-              on macOS, 4 KiB on Linux. On Linux it also pins the device&rsquo;s
-              queue settings (<code>max_sectors_kb=4</code>,
-              <code>read_ahead_kb=0</code>, <code>queue_depth=1</code>) at the start
-              of every session, because read-ahead from anywhere else is enough to
-              collapse the device &mdash; including the automatic probe the system
-              fires when a writable handle on the device closes, which once wrecked a
-              card immediately after a clean write.
+              driver, every access unbuffered and capped to a size the transport can
+              survive &mdash; as little as a single sector over FireWire.
+            </p>
+            <p>
+              On Linux there&rsquo;s a second line of defence, and it&rsquo;s worth
+              explaining because it&rsquo;s what makes 4 KiB safe there when the same
+              4 KiB corrupts on a Mac. The kernel keeps a set of per-device knobs
+              called the request queue, which bound the I/O it will build for that
+              disk: <code>max_sectors_kb</code> is the largest single request it will
+              issue, <code>read_ahead_kb</code> is how far past your request it will
+              speculatively read, and <code>queue_depth</code> is how many requests it
+              will keep in flight at once. The defaults are generous because generous
+              is what makes modern storage fast.
+            </p>
+            <p>
+              flashpod pins those to 4, 0 and 1 before every session. Not for its own
+              transfers &mdash; those are already capped and unbuffered &mdash; but
+              for <em>everything else on the machine that might touch the device</em>:
+              an OS mount, a desktop&rsquo;s automounter, or the probe the system
+              fires automatically whenever a writable handle on a block device closes.
+              Any one of those can issue a read large enough to collapse the bridge,
+              and one of them once wrecked a card immediately after a clean write.
+              With the queue pinned, the kernel physically cannot build a request
+              bigger than 4 KiB, no matter which program asks. macOS exposes no
+              per-disk equivalent &mdash; there is no knob to pin &mdash; so flashpod
+              has to be its own throttle there, and holds to a single sector.
             </p>
             <p>
               Writing your own filesystem driver is a good way to lose data, so this
