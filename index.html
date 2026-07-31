@@ -337,40 +337,6 @@ Found iPod on /dev/rdisk1 — 82 tracks.
         </details>
 
 
-        <details class="faq-item" id="faq-unreadable">
-          <summary>Why does my Mac say &ldquo;the disk you inserted was not readable&rdquo;?</summary>
-          <div class="faq-answer">
-            <p>
-              Because it isn&rsquo;t &mdash; not by macOS, anyway. Nothing is wrong
-              with your card, and this is expected on a flash-modded FireWire iPod.
-              Only the 1st and 2nd generation are affected; a 3rd or 4th generation
-              over USB mounts perfectly normally.
-            </p>
-            <p>
-              Plugging in the iPod prompts macOS to try to mount the data
-              partition, and it can&rsquo;t. You get &ldquo;The disk you inserted
-              was not readable by this computer&rdquo; and three buttons:
-              <em>Initialize&hellip;</em>, <em>Ignore</em>, and <em>Eject</em>.
-            </p>
-            <p>
-              Pick <strong>Ignore</strong>. Whatever you do, don&rsquo;t pick
-              <em>Initialize&hellip;</em> &mdash; that opens Disk Utility to
-              reformat the card you just carefully prepared. After you hit
-              <em>Ignore</em>, flashpod carries on working perfectly.
-            </p>
-            <p>
-              The cause is the operating system&rsquo;s own FAT driver being unable
-              to communicate successfully with the iPod&rsquo;s flash storage.
-              flashpod is designed to bypass that driver entirely and talk to the
-              iPod carefully over the raw device the Mac exposes, rather than
-              through a mounted partition &mdash; which is exactly why flashpod can
-              read and write a card that the Finder cannot even open. The
-              <a href="#faq-nitty">technical answer</a> covers what the OS driver is
-              doing wrong.
-            </p>
-          </div>
-        </details>
-
         <details class="faq-item">
           <summary>Do I need iTunes?</summary>
           <div class="faq-answer">
@@ -512,6 +478,41 @@ Found iPod on /dev/rdisk2 &mdash; 31 tracks.</pre>
             </p>
           </div>
         </details>
+
+        <details class="faq-item" id="faq-unreadable">
+          <summary>Why does my Mac say &ldquo;the disk you inserted was not readable&rdquo;?</summary>
+          <div class="faq-answer">
+            <p>
+              Because it isn&rsquo;t &mdash; not by macOS, anyway. Nothing is wrong
+              with your card, and this is expected on a flash-modded FireWire iPod.
+              Only the 1st and 2nd generation are affected; a 3rd or 4th generation
+              over USB mounts perfectly normally.
+            </p>
+            <p>
+              Plugging in the iPod prompts macOS to try to mount the data
+              partition, and it can&rsquo;t. You get &ldquo;The disk you inserted
+              was not readable by this computer&rdquo; and three buttons:
+              <em>Initialize&hellip;</em>, <em>Ignore</em>, and <em>Eject</em>.
+            </p>
+            <p>
+              Pick <strong>Ignore</strong>. Whatever you do, don&rsquo;t pick
+              <em>Initialize&hellip;</em> &mdash; that opens Disk Utility to
+              reformat the card you just carefully prepared. After you hit
+              <em>Ignore</em>, flashpod carries on working perfectly.
+            </p>
+            <p>
+              The cause is the operating system&rsquo;s own FAT driver being unable
+              to communicate successfully with the iPod&rsquo;s flash storage.
+              flashpod is designed to bypass that driver entirely and talk to the
+              iPod carefully over the raw device the Mac exposes, rather than
+              through a mounted partition &mdash; which is exactly why flashpod can
+              read and write a card that the Finder cannot even open. The
+              <a href="#faq-nitty">technical answer</a> covers what the OS driver is
+              doing wrong.
+            </p>
+          </div>
+        </details>
+
 
         <details class="faq-item">
           <summary>I heard I can install the historic iPod 1.0 firmware and run it. Is that true?</summary>
