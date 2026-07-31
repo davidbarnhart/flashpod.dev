@@ -323,6 +323,96 @@ section {
 .req h3 { margin: 0 0 0.4rem; font-size: 1.05rem; }
 .req p { margin: 0; color: var(--muted); font-size: 0.95rem; }
 
+/* ---------- FAQ (pure-CSS disclosures) ---------- */
+.faq-list { border-top: 1px solid var(--border); }
+
+.faq-item { border-bottom: 1px solid var(--border); }
+
+.faq-item > summary {
+  list-style: none;              /* kill the default triangle */
+  cursor: pointer;
+  display: flex;
+  align-items: baseline;
+  gap: 0.9rem;
+  padding: 1.1rem 0.2rem;
+  font-size: clamp(1rem, 2vw, 1.08rem);
+  font-weight: 600;
+  transition: color 0.15s ease;
+}
+.faq-item > summary::-webkit-details-marker { display: none; }
+.faq-item > summary:hover { color: var(--accent-2); }
+.faq-item > summary:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+/* Amber mono marker, flipped when the item is open */
+.faq-item > summary::before {
+  content: "+";
+  font-family: var(--mono);
+  font-size: 1.1rem;
+  line-height: 1;
+  color: var(--accent);
+  flex: none;
+  width: 1ch;
+}
+.faq-item[open] > summary::before { content: "\2212"; }  /* proper minus sign */
+.faq-item[open] > summary { color: var(--accent-2); }
+
+.faq-answer {
+  border-left: 2px solid var(--accent);
+  margin: 0 0 1.3rem 0.2rem;
+  padding: 0.1rem 0 0.1rem 1.4rem;
+}
+.faq-answer p {
+  margin: 0 0 0.9rem;
+  color: var(--muted);
+  max-width: 62ch;
+  font-size: 0.97rem;
+}
+.faq-answer p:last-child { margin-bottom: 0; }
+.faq-points {
+  margin: 0 0 0.9rem;
+  padding-left: 1.1rem;
+  color: var(--muted);
+  max-width: 62ch;
+  font-size: 0.97rem;
+}
+.faq-points li { margin: 0.4rem 0; }
+.faq-points li::marker { color: var(--accent); }
+.faq-points strong { color: var(--text); font-weight: 600; }
+.faq-answer h4 {
+  margin: 1.5rem 0 0.5rem;
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--accent-2);
+}
+.faq-answer h4:first-child { margin-top: 0; }
+.faq-answer .faq-fine { font-size: 0.88rem; color: #7c8290; }
+.faq-answer .faq-code {
+  background: #0b0c10;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  margin: 0 0 0.9rem;
+  padding: 1rem;
+  font-size: 0.8rem;
+  max-width: 62ch;
+}
+.faq-answer kbd {
+  font-family: var(--mono);
+  font-size: 0.85em;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  padding: 0.05em 0.35em;
+}
+.faq-answer code { font-size: 0.85em; }
+.faq-answer sup { font-size: 0.7em; }
+.faq-answer em { color: var(--text); font-style: normal; opacity: 0.85; }
+
 /* ---------- Final CTA ---------- */
 .final-cta {
   text-align: center;
