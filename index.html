@@ -46,7 +46,7 @@
         <h1>Bring a dead iPod<br />back to life.</h1>
         <p class="lede">
           flashpod is a command-line tool that puts a flash storage card into an
-          early-generation iPod and manages the music on it — writing the firmware,
+          early-generation iPod and manages the music on it, writing the firmware,
           building the database, and loading songs. <strong>No iTunes, ever.</strong>
         </p>
         <div class="hero-cta">
@@ -76,7 +76,7 @@
           <h3>Build the database</h3>
           <p>
             Creates the <code>iPod_Control</code> structure and an empty music
-            database from scratch — no iTunes, no libgpod plugin required.
+            database from scratch, no iTunes, no libgpod plugin required.
           </p>
         </article>
         <article class="card">
@@ -89,8 +89,7 @@
         <article class="card">
           <h3>Manage on the device</h3>
           <p>
-            Lists, adds, and removes tracks right on the iPod over USB or FireWire —
-            it finds the device for you, no mounting or device paths.
+            Lists, adds, and removes tracks right on the iPod over USB or FireWire, it finds the device for you, no mounting or device paths.
           </p>
         </article>
         <article class="card">
@@ -103,7 +102,7 @@
         <article class="card">
           <h3>One self-contained binary</h3>
           <p>
-            Download a single executable for your OS — no Python, no dependencies
+            Download a single executable for your OS, no Python, no dependencies
             to install. Built to run on hardware as old as OS X 10.8.
           </p>
         </article>
@@ -117,7 +116,7 @@
         <p>
           Flash the card in a USB reader, let flashpod initialize the database and
           load the bulk of your music, then pop it into the iPod. From there,
-          flashpod finds the device on its own — add or remove the odd track in
+          flashpod finds the device on its own, add or remove the odd track in
           seconds.
         </p>
       </div>
@@ -189,8 +188,7 @@ Found iPod on /dev/rdisk1 — 82 tracks.
           <div class="faq-answer">
             <p>
               flashpod is a command-line tool to help manage early-generation
-              iPods &mdash; 1st through 4th gen, before video capability was added
-              &mdash; that have had their original hard drive replaced with more
+              iPods, 1st through 4th gen, before video capability was added, that have had their original hard drive replaced with more
               reliable modern flash storage. <em>(4th gen should work, but
               isn&rsquo;t hardware-tested yet.)</em>
             </p>
@@ -200,7 +198,7 @@ Found iPod on /dev/rdisk1 — 82 tracks.
               FireWire sync for flash-modded iPods reportedly never worked, for
               reasons that stayed unclear for years until they were
               <a href="https://www.reddit.com/r/ipod/comments/1utu1ml/1st2nd_gen_ipod_flash_mod_with_full_speed_syncing/">recently
-              documented</a> &mdash; flashpod makes that transfer work reliably, as
+              documented</a>, flashpod makes that transfer work reliably, as
               <a href="#faq-firewire">explained more technically below</a>. It can
               also fully image a flash card for each generation of iPod.
             </p>
@@ -223,25 +221,25 @@ Found iPod on /dev/rdisk1 — 82 tracks.
             </p>
             <ul class="faq-points">
               <li>
-                <strong>An older Mac</strong> &mdash; quite possibly a MacBook Pro
+                <strong>An older Mac</strong>, quite possibly a MacBook Pro
                 in a drawer, since the regular MacBooks mostly didn&rsquo;t ship
                 with FireWire. flashpod is deliberately built to keep running on
                 machines that old, back to OS X 10.8.
               </li>
               <li>
-                <strong>A Thunderbolt Mac</strong> &mdash; chain adapters down to a
+                <strong>A Thunderbolt Mac</strong>, chain adapters down to a
                 FireWire 400 jack for the top of the iPod. Fair warning: the
                 Thunderbolt-to-FireWire adapter has gotten expensive used.
               </li>
               <li>
-                <strong>A desktop</strong> &mdash; add a PCIe FireWire card. These
+                <strong>A desktop</strong>, add a PCIe FireWire card. These
                 have stayed plentiful and cheap.
               </li>
             </ul>
             <p>
               Expect about 270 KiB/s over the cable. That&rsquo;s a hardware
               ceiling nobody can code around, for
-              <a href="#faq-firewire">reasons worth reading about</a> &mdash; so
+              <a href="#faq-firewire">reasons worth reading about</a>, so
               adding a few tracks over FireWire is quick enough, but when
               you&rsquo;re moving a lot of music it&rsquo;s faster to pull the card
               and go back to the reader.
@@ -249,13 +247,12 @@ Found iPod on /dev/rdisk1 — 82 tracks.
             <p>
               Managing the iPod over FireWire works on Linux and macOS. It
               can&rsquo;t work on Windows, which
-              <a href="#faq-windows">dropped FireWire support</a> after 8.1 &mdash;
-              on Windows, use the card reader.
+              <a href="#faq-windows">dropped FireWire support</a> after 8.1, on Windows, use the card reader.
             </p>
             <p>
               On a Mac, plugging the iPod in throws a
               &ldquo;disk not readable&rdquo; dialog. That&rsquo;s expected, but
-              one of its buttons will reformat your card &mdash; see
+              one of its buttons will reformat your card, see
               <a href="#faq-unreadable">why your Mac says that</a> before you click
               anything.
             </p>
@@ -296,7 +293,7 @@ Found iPod on /dev/rdisk1 — 82 tracks.
             </p>
             <p>
               One thing to watch: because the volume really is mounted, eject it
-              before you unplug &mdash; flashpod offers to do that for you at the
+              before you unplug, flashpod offers to do that for you at the
               end of an <code>add</code> or <code>rm</code>, and waits until it has
               actually happened.
             </p>
@@ -326,7 +323,7 @@ Found iPod on /dev/rdisk1 — 82 tracks.
             <p>
               flashpod carries firmware for both the grayscale 4th generation and
               the colour iPod photo, and asks which one you have before it writes
-              anything &mdash; the two are not interchangeable.
+              anything, the two are not interchangeable.
             </p>
             <p class="faq-fine">
               Not yet confirmed on hardware. Nothing about these models suggests
@@ -344,7 +341,7 @@ Found iPod on /dev/rdisk1 — 82 tracks.
             <p>
               Short answer: go cheap. A decent-brand SD or microSD card and an
               inexpensive SD-to-CF adapter off eBay. There is no point buying
-              anything larger than 128 GB &mdash; these iPods
+              anything larger than 128 GB, these iPods
               <a href="#faq-nitty">can&rsquo;t address past that</a> no matter what
               you put in them.
             </p>
@@ -353,7 +350,7 @@ Found iPod on /dev/rdisk1 — 82 tracks.
               compatibility record, with SD and microSD slightly behind them. But
               gigabyte for gigabyte, SD is simply cheaper than CF. The odds of a
               SanDisk SD card behind an SD-to-CF adapter working out are very
-              favourable &mdash; and that combination is the same flash hardware
+              favourable, and that combination is the same flash hardware
               flashpod was developed and tested on.
             </p>
           </div>
@@ -363,15 +360,13 @@ Found iPod on /dev/rdisk1 — 82 tracks.
           <summary>How many songs can I fit on it?</summary>
           <div class="faq-answer">
             <p>
-              On a 1st or 2nd generation iPod, around <strong>5,000</strong> &mdash;
-              however big your card is.
+              On a 1st or 2nd generation iPod, around <strong>5,000</strong>, however big your card is.
             </p>
             <p>
               People who fit a 64 GB or 128 GB card and set about filling it up
               discover that these iPods have a second limit, and it bites long
               before the storage does. The iPod keeps a database of every track and
-              its metadata &mdash;
-              <code>iPod_Control/iTunes/iTunesDB</code> &mdash; and the firmware can
+              its metadata, <code>iPod_Control/iTunes/iTunesDB</code>, and the firmware can
               only load a database up to a certain size. Past that, the iPod boots
               normally and shows an <em>empty library</em>. No error, no warning,
               just no music.
@@ -380,8 +375,7 @@ Found iPod on /dev/rdisk1 — 82 tracks.
               The cliff was measured on real 1st generation hardware, and it is
               sharp: a database of 3,776,000 bytes loads and plays; 3,776,684 bytes
               shows nothing. What matters is the <strong>bytes</strong>, not the
-              track count, so how many songs that works out to depends on your tags
-              &mdash; roughly 5,000 to 5,500 with typical artist and title lengths.
+              track count, so how many songs that works out to depends on your tags, roughly 5,000 to 5,500 with typical artist and title lengths.
               Long names and rich metadata cost you capacity.
             </p>
             <p>
@@ -390,7 +384,7 @@ Found iPod on /dev/rdisk1 — 82 tracks.
               offers to trim the batch to what will fit, so you find out at the
               prompt rather than from a silently empty iPod. Setting
               <code>FLASHPOD_DB_LIMIT</code> raises or lowers that ceiling, and
-              <code>0</code> disables the check &mdash; useful on later models,
+              <code>0</code> disables the check, useful on later models,
               which may well load more.
             </p>
           </div>
@@ -401,8 +395,8 @@ Found iPod on /dev/rdisk1 — 82 tracks.
           <div class="faq-answer">
             <p>
               Not at all. In the past, iTunes did the first crucial imaging steps
-              on the card: partitioning it &mdash; each card carries a small
-              firmware partition and a much larger data/music partition &mdash; and
+              on the card: partitioning it, each card carries a small
+              firmware partition and a much larger data/music partition, and
               writing the correct firmware file to that firmware partition.
             </p>
             <p>
@@ -418,7 +412,7 @@ Found iPod on /dev/rdisk1 — 82 tracks.
           <summary>Do I need Python?</summary>
           <div class="faq-answer">
             <p>
-              No. The release binaries have Python baked inside them &mdash; download
+              No. The release binaries have Python baked inside them, download
               the archive for your OS and you get a single executable with nothing to
               install.
             </p>
@@ -436,8 +430,7 @@ Found iPod on /dev/rdisk1 — 82 tracks.
               One exception worth knowing: on a genuinely vintage Mac, pip
               isn&rsquo;t an option at all. Those machines&rsquo; TLS certificates
               are too old to complete a handshake with PyPI, which is why
-              there&rsquo;s a separate build for them that needs no network at all
-              &mdash; see <a href="#install">Install</a>.
+              there&rsquo;s a separate build for them that needs no network at all, see <a href="#install">Install</a>.
             </p>
           </div>
         </details>
@@ -446,21 +439,21 @@ Found iPod on /dev/rdisk1 — 82 tracks.
           <summary>Will this erase my card? Could it wipe the wrong disk?</summary>
           <div class="faq-answer">
             <p>
-              <code>flashpod flash</code> erases the card, yes &mdash; that&rsquo;s
+              <code>flashpod flash</code> erases the card, yes, that&rsquo;s
               the job. It repartitions it and writes the firmware, so anything
               already on the card is gone. The other commands don&rsquo;t:
               <code>ls</code>, <code>add</code>, and <code>rm</code> work within the
               filesystem that&rsquo;s already there.
             </p>
             <p>
-              As for the wrong disk &mdash; the honest answer is that a tool which
+              As for the wrong disk, the honest answer is that a tool which
               writes raw sectors has to earn your trust, so here is exactly what
               stands between the command and a mistake:
             </p>
             <ul class="faq-points">
               <li>Only removable and USB disks are offered as targets in the first place.</li>
               <li>The disk backing your running system is <strong>always</strong> refused, whatever you type.</li>
-              <li>Partition nodes are rejected &mdash; it wants the whole card, not <code>/dev/sdb1</code>.</li>
+              <li>Partition nodes are rejected, it wants the whole card, not <code>/dev/sdb1</code>.</li>
               <li>The target is unmounted before anything is written.</li>
               <li>You confirm by typing an explicit phrase naming the device. Not <kbd>y</kbd>.</li>
               <li>After writing, the firmware region is read back and compared byte-for-byte with the image before the card is ejected.</li>
@@ -483,8 +476,8 @@ Found iPod on /dev/rdisk1 — 82 tracks.
               privileged operation before any music is involved.
             </p>
             <p>
-              If your iPod is already mounted &mdash; which is the normal case on a
-              3rd or 4th generation over USB &mdash; flashpod works through the
+              If your iPod is already mounted, which is the normal case on a
+              3rd or 4th generation over USB, flashpod works through the
               mount and never asks for anything. The password prompt belongs to the
               raw path.
             </p>
@@ -501,7 +494,7 @@ Found iPod on /dev/rdisk2 &mdash; 31 tracks.</pre>
               Any <code>FLASHPOD_*</code> environment variables you set are carried
               across that boundary, which sudo would otherwise discard. On Linux,
               root is also what lets it pin the FireWire device&rsquo;s queue
-              settings before a session &mdash; a safeguard explained in
+              settings before a session, a safeguard explained in
               <a href="#faq-nitty">the technical answer</a>. On Windows, run the
               <code>flash</code> command from an Administrator terminal.
             </p>
@@ -512,7 +505,7 @@ Found iPod on /dev/rdisk2 &mdash; 31 tracks.</pre>
           <summary>Can I use flashpod on Windows?</summary>
           <div class="faq-answer">
             <p>
-              For flashing and filling the card in a USB reader, yes &mdash; unzip
+              For flashing and filling the card in a USB reader, yes, unzip
               the Windows build and run <code>flashpod.exe</code> from a terminal,
               using an Administrator terminal for <code>flash</code> itself.
             </p>
@@ -521,7 +514,7 @@ Found iPod on /dev/rdisk2 &mdash; 31 tracks.</pre>
               <strong>Windows dropped FireWire support after Windows 8.1.</strong>
               The legacy 1394 drivers were removed from the operating system, and the
               storage layer that lets an iPod appear as a disk went with them. This
-              isn&rsquo;t a gap in flashpod &mdash; there&rsquo;s nothing underneath
+              isn&rsquo;t a gap in flashpod, there&rsquo;s nothing underneath
               it left to build on. A PCIe FireWire card doesn&rsquo;t rescue it
               either, because what&rsquo;s missing is the driver stack, not the
               controller.
@@ -542,7 +535,7 @@ Found iPod on /dev/rdisk2 &mdash; 31 tracks.</pre>
           <summary>Why does my Mac say &ldquo;the disk you inserted was not readable&rdquo;?</summary>
           <div class="faq-answer">
             <p>
-              Because it isn&rsquo;t &mdash; not by macOS, anyway. Nothing is wrong
+              Because it isn&rsquo;t, not by macOS, anyway. Nothing is wrong
               with your card, and this is expected on a flash-modded FireWire iPod.
               Only the 1st and 2nd generation are affected; a 3rd or 4th generation
               over USB mounts perfectly normally.
@@ -555,7 +548,7 @@ Found iPod on /dev/rdisk2 &mdash; 31 tracks.</pre>
             </p>
             <p>
               Pick <strong>Ignore</strong>. Whatever you do, don&rsquo;t pick
-              <em>Initialize&hellip;</em> &mdash; that opens Disk Utility to
+              <em>Initialize&hellip;</em>, that opens Disk Utility to
               reformat the card you just carefully prepared. After you hit
               <em>Ignore</em>, flashpod carries on working perfectly.
             </p>
@@ -564,7 +557,7 @@ Found iPod on /dev/rdisk2 &mdash; 31 tracks.</pre>
               to communicate successfully with the iPod&rsquo;s flash storage.
               flashpod is designed to bypass that driver entirely and talk to the
               iPod carefully over the raw device the Mac exposes, rather than
-              through a mounted partition &mdash; which is exactly why flashpod can
+              through a mounted partition, which is exactly why flashpod can
               read and write a card that the Finder cannot even open. The
               <a href="#faq-nitty">technical answer</a> covers what the OS driver is
               doing wrong.
@@ -582,13 +575,13 @@ Found iPod on /dev/rdisk2 &mdash; 31 tracks.</pre>
               flashpod has images for four of them, and offers all four:
             </p>
             <ul class="faq-points">
-              <li><strong>1.5</strong> (February 2005) &mdash; the final release, and the one you&rsquo;ll most often find on the internet. 1st and 2nd gen.</li>
-              <li><strong>1.4</strong> (April 2004) &mdash; 1st and 2nd gen.</li>
-              <li><strong>0.4</strong> (December 2001) &mdash; 1st gen only.</li>
-              <li><strong>0.0</strong> (November 2001) &mdash; 1st gen only. The very first firmware ever to ship on an iPod.</li>
+              <li><strong>1.5</strong> (February 2005), the final release, and the one you&rsquo;ll most often find on the internet. 1st and 2nd gen.</li>
+              <li><strong>1.4</strong> (April 2004), 1st and 2nd gen.</li>
+              <li><strong>0.4</strong> (December 2001), 1st gen only.</li>
+              <li><strong>0.0</strong> (November 2001), 1st gen only. The very first firmware ever to ship on an iPod.</li>
             </ul>
             <p>
-              That last one &mdash; also written as version 1.0 &mdash; is the
+              That last one, also written as version 1.0, is the
               recently rediscovered original, extracted from an old Apple firmware
               utility. It shipped on the iPods that went on sale in November 2001
               and Apple replaced it about seven weeks later.
@@ -598,17 +591,17 @@ Found iPod on /dev/rdisk2 &mdash; 31 tracks.</pre>
               through the line, so <strong>0.0 and 0.4 are 1st gen only</strong> and
               would leave a 2nd gen unusable. flashpod asks which model you have and
               then offers only firmware that fits it. If you&rsquo;re unsure which
-              you own, turn the wheel &mdash; the 1st gen&rsquo;s scroll wheel
+              you own, turn the wheel, the 1st gen&rsquo;s scroll wheel
               physically rotates, and the 2nd gen&rsquo;s doesn&rsquo;t move at all.
             </p>
             <p>
               All four have been synced over FireWire on a 1st generation iPod, on
               stock Apple firmware, with no patching. A 2nd generation hasn&rsquo;t
-              been tested yet &mdash; it uses the same FireWire hardware, so 1.4 and
+              been tested yet, it uses the same FireWire hardware, so 1.4 and
               1.5 ought to behave the same there, but I haven&rsquo;t confirmed it.
             </p>
             <p class="faq-fine">
-              flashpod doesn&rsquo;t bundle these images &mdash; they&rsquo;re
+              flashpod doesn&rsquo;t bundle these images, they&rsquo;re
               Apple&rsquo;s copyright. It downloads the one you pick and verifies it
               against a known SHA-256 before writing anything.
             </p>
@@ -620,15 +613,15 @@ Found iPod on /dev/rdisk2 &mdash; 31 tracks.</pre>
           <div class="faq-answer">
             <p>
               <em>Short version:</em> the iPod was willing all along. What broke
-              every previous attempt wasn&rsquo;t the iPod or the card &mdash; it was
+              every previous attempt wasn&rsquo;t the iPod or the card, it was
               your computer talking too fast.
             </p>
             <p>
               Every tool before flashpod synced the same way: plug in the FireWire
               cable, the iPod reboots into disk mode, your operating system sees a
               storage device and mounts the FAT32 partition holding the music. Then
-              iTunes &mdash; or Winamp, foobar2000, EphPod, Rhythmbox, gtkpod,
-              Amarok, YamiPod &mdash; copies files onto that mounted volume. The
+              iTunes, or Winamp, foobar2000, EphPod, Rhythmbox, gtkpod,
+              Amarok, YamiPod, copies files onto that mounted volume. The
               mount usually worked. The sync didn&rsquo;t, because those programs
               never touch the iPod directly: they ask the OS for files, and the
               OS&rsquo;s own FAT32 driver turns that into traffic on the FireWire
@@ -641,7 +634,7 @@ Found iPod on /dev/rdisk2 &mdash; 31 tracks.</pre>
               doing that. It opens the device in <strong>raw</strong> mode, going
               around the operating system&rsquo;s FAT32 driver entirely and doing
               every filesystem access itself, <strong>unbuffered</strong>, capped at
-              a few kilobytes at a time. No monster bites &mdash; just sipping. Hold
+              a few kilobytes at a time. No monster bites, just sipping. Hold
               to that pace and the transfer simply works.
             </p>
             <p>
@@ -652,7 +645,7 @@ Found iPod on /dev/rdisk2 &mdash; 31 tracks.</pre>
               it.
             </p>
             <p>
-              Sipping is reliable, but it isn&rsquo;t fast &mdash; expect around 270
+              Sipping is reliable, but it isn&rsquo;t fast, expect around 270
               KiB/s over the cable. For a bulk load, flash the card and fill it in a
               USB reader instead, which doesn&rsquo;t involve the iPod&rsquo;s
               FireWire hardware at all, then use the cable for the odd track.
@@ -684,7 +677,7 @@ Found iPod on /dev/rdisk2 &mdash; 31 tracks.</pre>
               The 1.8&Prime; Toshiba drives Apple shipped tolerated the missing
               checksum. CompactFlash and SD cards in True-IDE mode enforce the spec,
               so UltraDMA is simply unavailable with a flash card and every transfer
-              falls back to PIO &mdash; the slow, CPU-driven mode where the processor
+              falls back to PIO, the slow, CPU-driven mode where the processor
               moves each halfword itself instead of letting a DMA engine stream it.
               That fallback is roughly 50&times; off full FireWire speed, and it is
               the origin of flashpod&rsquo;s ~270 KiB/s ceiling. No software can
@@ -704,8 +697,7 @@ Found iPod on /dev/rdisk2 &mdash; 31 tracks.</pre>
             <p>
               PIO being slow doesn&rsquo;t explain why syncing <em>broke</em> rather
               than merely crawled. That part is the host&rsquo;s fault, and it went
-              unnoticed because every tool made the same architectural choice
-              &mdash; the one described in
+              unnoticed because every tool made the same architectural choice, the one described in
               <a href="#faq-firewire">the answer above</a>: they all worked through
               an OS-mounted FAT32 volume, at the file level, leaving the actual
               conversation with the device to the operating system.
@@ -722,7 +714,7 @@ Found iPod on /dev/rdisk2 &mdash; 31 tracks.</pre>
             </p>
             <p>
               The measured limits on real hardware are stark. Single-sector
-              transfers &mdash; 512 bytes &mdash; work in both directions. Through
+              transfers, 512 bytes, work in both directions. Through
               macOS&rsquo;s raw device, where nothing stands between the request and
               the bridge, 4 KiB already fails: reads come back as zeros and writes
               corrupt. For comparison, the default Linux settings ask that device
@@ -745,7 +737,7 @@ Found iPod on /dev/rdisk2 &mdash; 31 tracks.</pre>
               means the raw character device <code>/dev/rdiskN</code> rather than
               <code>/dev/diskN</code>; on Linux it means opening the block device
               with <code>O_DIRECT</code>. Without it, capping your own transfers
-              accomplishes nothing &mdash; the page cache re-batches your careful
+              accomplishes nothing, the page cache re-batches your careful
               512-byte requests straight back into the large ones that break the
               bridge. flashpod shipped that regression exactly once, in v0.3.0, and
               it preceded a crash mid-<code>add</code>.
@@ -754,8 +746,7 @@ Found iPod on /dev/rdisk2 &mdash; 31 tracks.</pre>
               The proof is a single sector. A freshly flashed card read through
               macOS&rsquo;s buffered device comes back as zeros, and Disk Utility
               refuses to mount the volume, complaining of an invalid boot block. The
-              very same sector read raw comes back byte-perfect &mdash;
-              <code>eb 58 90 "MSWIN4.1"</code>, exactly as written. The card was
+              very same sector read raw comes back byte-perfect, <code>eb 58 90 "MSWIN4.1"</code>, exactly as written. The card was
               never wrong. The buffer cache was.
             </p>
 
@@ -765,7 +756,7 @@ Found iPod on /dev/rdisk2 &mdash; 31 tracks.</pre>
               yourself, so that&rsquo;s what flashpod does: directories, long
               filenames, cluster allocation, deletes and overwrites, in its own
               driver, every access unbuffered and capped to a size the transport can
-              survive &mdash; as little as a single sector over FireWire.
+              survive, as little as a single sector over FireWire.
             </p>
             <p>
               On Linux there&rsquo;s a second line of defence, and it&rsquo;s worth
@@ -780,7 +771,7 @@ Found iPod on /dev/rdisk2 &mdash; 31 tracks.</pre>
             </p>
             <p>
               flashpod pins those to 4, 0 and 1 before every session. Not for its own
-              transfers &mdash; those are already capped and unbuffered &mdash; but
+              transfers, those are already capped and unbuffered, but
               for <em>everything else on the machine that might touch the device</em>:
               an OS mount, a desktop&rsquo;s automounter, or the probe the system
               fires automatically whenever a writable handle on a block device closes.
@@ -788,7 +779,7 @@ Found iPod on /dev/rdisk2 &mdash; 31 tracks.</pre>
               and one of them once wrecked a card immediately after a clean write.
               With the queue pinned, the kernel physically cannot build a request
               bigger than 4 KiB, no matter which program asks. macOS exposes no
-              per-disk equivalent &mdash; there is no knob to pin &mdash; so flashpod
+              per-disk equivalent, there is no knob to pin, so flashpod
               has to be its own throttle there, and holds to a single sector over the
               bridge.
             </p>
@@ -801,7 +792,7 @@ Found iPod on /dev/rdisk2 &mdash; 31 tracks.</pre>
             </p>
             <p>
               Preparation matters as much as pacing. FAT32 requires at least 65,525
-              clusters &mdash; below that the volume is FAT16 by definition, the iPod
+              clusters, below that the volume is FAT16 by definition, the iPod
               firmware reads it as FAT16, and it crashes exactly as if there were no
               filesystem at all. Formatting tools only warn about this. flashpod sizes
               clusters adaptively to stay above the floor.
@@ -839,7 +830,7 @@ Found iPod on /dev/rdisk2 &mdash; 31 tracks.</pre>
         </div>
         <p>
           If you have Python and a working internet connection, this is the simplest
-          path — it pulls the latest release straight from
+          path, it pulls the latest release straight from
           <a href="https://pypi.org/project/flashpod/">PyPI</a>:
         </p>
 <pre class="code">pip install flashpod       # or: pipx install flashpod
@@ -858,8 +849,7 @@ flashpod --help</pre>
         <p>
           Prefer a self-contained binary, or don&rsquo;t have Python handy? Grab the
           archive for your OS from the
-          <a href="https://github.com/davidbarnhart/flashpod/releases">Releases page</a>
-          — each holds a single executable.
+          <a href="https://github.com/davidbarnhart/flashpod/releases">Releases page</a>, each holds a single executable.
         </p>
 
         <!-- Pure-CSS tabs -->
@@ -912,7 +902,7 @@ flashpod.exe --help
           <h3>3 · Copy it across on a USB stick</h3>
         </div>
         <p>
-          Many vintage Macs can&rsquo;t reach PyPI or GitHub at all — their TLS
+          Many vintage Macs can&rsquo;t reach PyPI or GitHub at all, their TLS
           certificates are too old to complete a modern HTTPS handshake. The
           <code>flashpod-macos-vintage-no-internet</code> build is made for exactly
           this: the firmware images are baked in, so the vintage Mac never needs a
@@ -933,8 +923,7 @@ cd flashpod-macos-vintage-no-internet
       </div>
 
       <p class="install-note">
-        The Linux, Windows, and modern-macOS builds don&rsquo;t bundle firmware —
-        <code>flashpod flash</code> downloads the image you pick (verified by
+        The Linux, Windows, and modern-macOS builds don&rsquo;t bundle firmware, <code>flashpod flash</code> downloads the image you pick (verified by
         checksum), or you supply your own with <code>--firmware</code>. The vintage
         Mac build is the exception: firmware comes baked in. Building the binaries
         yourself is documented in
@@ -957,7 +946,7 @@ cd flashpod-macos-vintage-no-internet
           <h3>Operating system</h3>
           <p>
             Linux, macOS (Intel, Apple Silicon, and vintage OS X 10.8), and
-            Windows — card flashing is hardware-tested on all three. Managing
+            Windows, card flashing is hardware-tested on all three. Managing
             music on the iPod itself is Linux and macOS; on Windows, load the
             card in the reader.
           </p>
