@@ -251,6 +251,24 @@ Found iPod on /dev/rdisk1 — 82 tracks.
               <a href="#faq-windows">dropped FireWire support</a> after 8.1 &mdash;
               on Windows, use the card reader.
             </p>
+            <p>
+              <strong>Special note for Mac users.</strong> Plugging in a
+              flash-modded FireWire iPod will prompt macOS to attempt to mount the
+              data partition, and it will be unable to. You&rsquo;ll get
+              &ldquo;The disk you inserted was not readable by this computer&rdquo;
+              with three buttons: <em>Initialize&hellip;</em>, <em>Ignore</em>, and
+              <em>Eject</em>. Pick <strong>Ignore</strong>. Whatever you do,
+              don&rsquo;t pick <em>Initialize&hellip;</em> &mdash; that opens Disk
+              Utility to reformat the card you just carefully prepared.
+            </p>
+            <p>
+              That error is the operating system&rsquo;s native FAT driver being
+              unable to communicate successfully with the iPod&rsquo;s flash
+              storage. flashpod is designed to bypass that driver and talk to the
+              iPod carefully over the raw device the Mac exposes, instead of a
+              mounted partition &mdash; so the dialog is expected, and everything
+              works normally once you dismiss it.
+            </p>
             <p class="faq-fine">
               Developed on a Linux desktop with a PCIe FireWire card, tested on a
               Thunderbolt MacBook Pro running OS X 10.8 and on a 2015-era MacBook
