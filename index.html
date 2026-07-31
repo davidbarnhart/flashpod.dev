@@ -360,6 +360,43 @@ Found iPod on /dev/rdisk1 — 82 tracks.
         </details>
 
         <details class="faq-item">
+          <summary>How many songs can I fit on it?</summary>
+          <div class="faq-answer">
+            <p>
+              On a 1st or 2nd generation iPod, around <strong>5,000</strong> &mdash;
+              however big your card is.
+            </p>
+            <p>
+              People who fit a 64 GB or 128 GB card and set about filling it up
+              discover that these iPods have a second limit, and it bites long
+              before the storage does. The iPod keeps a database of every track and
+              its metadata &mdash;
+              <code>iPod_Control/iTunes/iTunesDB</code> &mdash; and the firmware can
+              only load a database up to a certain size. Past that, the iPod boots
+              normally and shows an <em>empty library</em>. No error, no warning,
+              just no music.
+            </p>
+            <p>
+              The cliff was measured on real 1st generation hardware, and it is
+              sharp: a database of 3,776,000 bytes loads and plays; 3,776,684 bytes
+              shows nothing. What matters is the <strong>bytes</strong>, not the
+              track count, so how many songs that works out to depends on your tags
+              &mdash; roughly 5,000 to 5,500 with typical artist and title lengths.
+              Long names and rich metadata cost you capacity.
+            </p>
+            <p>
+              flashpod knows about the ceiling. <code>flashpod add</code> projects
+              how large the database will be <em>before</em> it copies anything and
+              offers to trim the batch to what will fit, so you find out at the
+              prompt rather than from a silently empty iPod. Setting
+              <code>FLASHPOD_DB_LIMIT</code> raises or lowers that ceiling, and
+              <code>0</code> disables the check &mdash; useful on later models,
+              which may well load more.
+            </p>
+          </div>
+        </details>
+
+        <details class="faq-item">
           <summary>Do I need iTunes?</summary>
           <div class="faq-answer">
             <p>
